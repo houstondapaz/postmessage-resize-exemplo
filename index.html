@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Pagina principal</title>
+  </head>
+  <body>
+    <div>
+      <label>Meu Iframe</label>
+      <iframe
+        id="meu-iframe"
+        style="position:absolute;"
+        src="meuiframe.html"
+        allowfullscreen="true"
+        width="200px"
+        height="40px"
+      ></iframe>
+    </div>
+
+    <script>
+      const meuIframe = document.getElementById('meu-iframe')
+
+      // escutando eventos vindo de outras windows
+      window.addEventListener('message', function(e) {
+        // alterando a altura do iframe
+        meuIframe.setAttribute('height', e.data.height)
+      })
+    </script>
+  </body>
+</html>
